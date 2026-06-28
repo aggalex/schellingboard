@@ -195,8 +195,19 @@ export function EventsManager({ events }: { events: Event[] }) {
                   {event.name}
                 </p>
                 <p className="text-sm text-gray-500">
-                  {event.start.toLocaleDateString()} –{" "}
-                  {event.end.toLocaleDateString()}
+                  <time
+                    dateTime={event.start.toISOString()}
+                    suppressHydrationWarning
+                  >
+                    {event.start.toLocaleDateString()}
+                  </time>{" "}
+                  –{" "}
+                  <time
+                    dateTime={event.end.toISOString()}
+                    suppressHydrationWarning
+                  >
+                    {event.end.toLocaleDateString()}
+                  </time>
                   {" · "}
                   {event.timezone}
                 </p>

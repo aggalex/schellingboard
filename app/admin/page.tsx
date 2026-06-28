@@ -22,8 +22,19 @@ export default async function AdminPage() {
               <li key={event.id} className="py-3">
                 <p className="font-medium text-gray-900">{event.name}</p>
                 <p className="text-sm text-gray-500">
-                  {event.start.toLocaleDateString()} –{" "}
-                  {event.end.toLocaleDateString()}
+                  <time
+                    dateTime={event.start.toISOString()}
+                    suppressHydrationWarning
+                  >
+                    {event.start.toLocaleDateString()}
+                  </time>{" "}
+                  –{" "}
+                  <time
+                    dateTime={event.end.toISOString()}
+                    suppressHydrationWarning
+                  >
+                    {event.end.toLocaleDateString()}
+                  </time>
                 </p>
               </li>
             ))}
