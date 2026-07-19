@@ -246,8 +246,7 @@ export function SessionProposalForm(props: {
           type="submit"
           className="bg-rose-400 text-white font-semibold py-2 rounded shadow disabled:bg-gray-200 disabled:text-gray-400 disabled:shadow-none hover:bg-rose-500 active:bg-rose-500 mx-auto px-12"
           disabled={
-            !titleController.field.value ||
-            form.formState.isSubmitting ||
+            !titleController.field.value || form.formState.isSubmitting||
             isDeleting
           }
         >
@@ -258,7 +257,7 @@ export function SessionProposalForm(props: {
       {proposal && (
         <ConfirmDeletionModal
           btnDisabled={form.formState.isSubmitting || isDeleting}
-          confirm={handleDelete}
+          confirm={form.handleSubmit(handleDelete)}
           itemName="session proposal"
         />
       )}
